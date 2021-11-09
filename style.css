@@ -21,13 +21,13 @@
 .header img {
 }
 
-.login {
+.trybewarts-login {
     display: flex;
     align-items: center;
     margin: 0 10px;
 }
 
-.login input {
+.trybewarts-login input {
     margin: 0 10px 0 0;
 }
 
