@@ -78,3 +78,8 @@
 .checkbox input {
   margin-top: 20px;
 }
+
+#rate-radios {
+  display: flex;
+  justify-content: space-between;
+}
