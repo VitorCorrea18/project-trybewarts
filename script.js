@@ -1,6 +1,6 @@
-const btnEntrar = document.getElementById('btn-entrar'); // btnEntrar guarda o botão Entrar nesta variável.
-const agreementBox = document.getElementById('agreement');
-const btnSend = document.getElementById('submit-btn');
+const btnEntrar = document.getElementById('btn-entrar'); // guarda o botão btn-entrar nesta variável.
+const agreementBox = document.getElementById('agreement'); // guarda o checkBox agreement nesta variável.
+const btnSend = document.getElementById('submit-btn'); // guarda o botão 'submit-btn' nesta variavel.
 
 function checkLogin() {
   // Verifica se o email e a senha correspondem ao esperado.
@@ -17,20 +17,20 @@ function checkLogin() {
 }
 
 function checkAgreement() {
-  if (agreementBox.checked === true) {
-    btnSend.disabled = false;
+  if (agreementBox.checked === true) { // Verifica se o checkbox está selecionado.
+    btnSend.disabled = false; // caso a condição seja verdadeira o botão se ativa.
   } else {
-    btnSend.disabled = true;
+    btnSend.disabled = true; // se falsa a condição, o botão se desativa.
   }
 }
 
-window.onload = () => {
-  btnEntrar.addEventListener('click', () => {
-    checkLogin();
+window.onload = () => { // Se ativa no momento que a página é carregada.
+  btnEntrar.addEventListener('click', () => { // escutador de evento 'click' no botão entrar.
+    checkLogin(); // chama a função que verifica os dados de login.
   });
 
-  agreementBox.addEventListener('click', () => {
-    checkAgreement();
+  agreementBox.addEventListener('click', () => { // escutador de evento 'click' no checkBox
+    checkAgreement(); // chama a função que verifica se o checkBox está marcado.
   });
 };
 
