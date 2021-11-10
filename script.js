@@ -1,4 +1,6 @@
 const btnEntrar = document.getElementById('btn-entrar'); // btnEntrar guarda o botão Entrar nesta variável.
+const agreementBox = document.getElementById('agreement');
+const btnSend = document.getElementById('submit-btn');
 
 function checkLogin() {
   // Verifica se o email e a senha correspondem ao esperado.
@@ -14,8 +16,25 @@ function checkLogin() {
   }
 }
 
+function checkAgreement() {
+  if (agreementBox.checked === true) {
+    btnSend.disabled = false;
+  } else {
+    btnSend.disabled = true;
+  }
+}
+
 window.onload = () => {
   btnEntrar.addEventListener('click', () => {
     checkLogin();
   });
+
+  agreementBox.addEventListener('click', () => {
+    checkAgreement();
+  });
 };
+
+btnSend.addEventListener('click', () => {
+  // Completar no requisito 21.
+  console.log('click');
+});
