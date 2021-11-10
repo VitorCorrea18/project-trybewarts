@@ -22,7 +22,7 @@
   <main class="main">
     <form id="evaluation-form" action="">
       <h1 id="form-title">Formulário de Avalição</h1>
-      <section id="dados">
+      <section class="align-content input-personal-data">
         <input type="text" id="input-name" placeholder="Nome" />
         <input type="text" id="input-lastname" placeholder="Sobrenome" />
         <br />
@@ -36,20 +36,37 @@
           <option value="Pytherina" id="pytherina-house">Pytherina</option>
         </select>
       </section>
-      <section class="dados">
+      <section class="align-content tech-family">
         <div id="family">
           <label for="family" id="label-family">Qual sua família?</label>
-          <br />
+          
+          <div class="radio">
+            <label for="frontend">
+              <input type="radio" name="family" value="Frontend" id="frontend" />Família Frontend</label>
+            
+            <label for="backend"><input type="radio" name="family" value="Backend" id="backend" />Família End</label>
+            
+            <label for="fullstack"><input type="radio" name="family" value="FullStack" id="fullstack" />Família
+              fullstack</label>
+          </div>
+        </div>
+        <div id="tech">
+          <label id="label-content">Qual conteúdo você está com mais vontade de aprender?</label>
+          <div class="checkbox">
+            <label for="HoFs"><input type="checkbox" name="HoFs" id="HoFs" value="HoFs"> HoFs</label>
+  
+            <label for="Jest"><input type="checkbox" name="Jest" id="Jest" value="Jest">Jest</label>
+  
+            <label for="Promises"><input type="checkbox" name="Promises" id="Promises" value="Promises">Promises</label>
+  
+            <label for="React"><input type="checkbox" name="React" id="React" value="React">React</label>
+  
+            <label for="SQL"><input type="checkbox" name="SQL" id="SQL" value="SQL">SQL</label>
+  
+            <label for="Python"><input type="checkbox" name="Python" id="Python" value="Python">Python</label>
+          </div>
 
-          <label for="frontend">
-            <input type="radio" name="family" value="Frontend" id="frontend" />Família Frontend</label>
-          <br />
-
-          <label for="backend"><input type="radio" name="family" value="Backend" id="backend" />Família End</label>
-          <br />
-
-          <label for="fullstack"><input type="radio" name="family" value="FullStack" id="fullstack" />Família
-            fullstack</label>
+          
         </div>
       </section>
     </form>

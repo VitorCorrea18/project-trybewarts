@@ -33,7 +33,7 @@
   align-items: center;
 }
 
-#dados {
+.align-content {
   margin-bottom: 50px;
 }
 
@@ -51,5 +51,30 @@
 #family {
   display: flex;
   flex-direction: column;
-  align-items: space-between;
+}
+
+.radio {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.radio input {
+  margin-top: 10px;
+}
+
+.tech-family {
+  display: flex;
+  justify-content: space-between;
+}
+
+.checkbox {
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap;
+  width: 200px;
+}
+
+.checkbox input {
+  margin-top: 20px;
 }
