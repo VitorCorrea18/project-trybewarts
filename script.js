@@ -4,6 +4,7 @@ const btnSend = document.getElementById('submit-btn'); // guarda o botão 'submi
 const textArea = document.querySelector('textarea'); // guarda o input de texto nesta variável.
 const maxLength = textArea.getAttribute('maxlength'); // guarda o valor numerico do atributo maxlength da textarea.
 const counter = document.getElementById('counter'); // Elemento span que guarda o numero atual de carecteres do textarea (length).
+const main = document.getElementById('main');
 
 function checkLogin() {
   // Verifica se o email e a senha correspondem ao esperado.
@@ -27,6 +28,11 @@ function checkAgreement() {
   }
 }
 
+
+btnSend.addEventListener('click', (event) => {
+  const sentForm = document.createElement('div').className('sent-form');
+});
+
 window.onload = () => { // Se ativa no momento que a página é carregada.
   btnEntrar.addEventListener('click', () => { // escutador de evento 'click' no botão entrar.
     checkLogin(); // chama a função que verifica os dados de login.
@@ -35,15 +41,9 @@ window.onload = () => { // Se ativa no momento que a página é carregada.
   agreementBox.addEventListener('click', () => { // escutador de evento 'click' no checkBox
     checkAgreement(); // chama a função que verifica se o checkBox está marcado.
   });
+
+  counter.innerText = `${maxLength}`; // exibe o valor max de caracteres permitidos.
+  textArea.addEventListener('keyup', () => { // Se ativa ao digitar na text area.
+    counter.innerText = `${maxLength - textArea.value.length}`; // atualiza o counter. 500 - total digitado.
+  });
 };
-
-counter.innerText = `${maxLength}`; // exibe o valor max de caracteres permitidos.
-textArea.addEventListener('keyup', () => { // Se ativa ao digitar na text area.
-
-    counter.innerText = `${maxLength - textArea.value.length}`; // atualiza o counter.
-});
-
-btnSend.addEventListener('click', () => {
-  // Completar no requisito 21.
-  console.log('click');
-});
