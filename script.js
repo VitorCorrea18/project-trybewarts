@@ -4,7 +4,7 @@ const btnSend = document.getElementById('submit-btn'); // guarda o botão 'submi
 const textArea = document.querySelector('textarea'); // guarda o input de texto nesta variável.
 const maxLength = textArea.getAttribute('maxlength'); // guarda o valor numerico do atributo maxlength da textarea.
 const counter = document.getElementById('counter'); // Elemento span que guarda o numero atual de carecteres do textarea (length).
-const main = document.getElementById('main');
+// const main = document.getElementById('main'); REQUISITO 22
 
 function checkLogin() {
   // Verifica se o email e a senha correspondem ao esperado.
@@ -28,10 +28,9 @@ function checkAgreement() {
   }
 }
 
-
-btnSend.addEventListener('click', (event) => {
-  const sentForm = document.createElement('div').className('sent-form');
-});
+// btnSend.addEventListener('click', (event) => {
+//   const sentForm = document.createElement('div').className('sent-form');
+// }); COMPLETAR REQUISITO 22!
 
 window.onload = () => { // Se ativa no momento que a página é carregada.
   btnEntrar.addEventListener('click', () => { // escutador de evento 'click' no botão entrar.
