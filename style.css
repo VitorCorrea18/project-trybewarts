@@ -115,7 +115,7 @@ footer h3 {
   border-radius: 5px;
   padding: 4px;
   margin: 5px;
- align-self: flex-end;
+  align-self: flex-end;
 }
 
 #textarea {

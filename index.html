@@ -26,12 +26,12 @@
     <main class="main">
       <form id="evaluation-form" action="">
         <h1 id="form-title">Formulário de Avaliação</h1>
-        <section class="align-content input-personal-data">
+        <section class="align-content" id="personal-data">
           <input type="text" id="input-name" class="" placeholder="Nome" />
           <input type="text" id="input-lastname" placeholder="Sobrenome" />
           <br />
           <input type="text" id="input-email" placeholder="Email" />
-          <label for="house">Casa: </label>
+          <label for="house" id="label-house">Casa: </label>
           <select name="house" id="house">
             <option value=""></option>
             <option value="Gitnória" id="gitnoria-house">Gitnória</option>
@@ -40,7 +40,7 @@
             <option value="Pytherina" id="pytherina-house">Pytherina</option>
           </select>
         </section>
-        <section class="align-content tech-family">
+        <section class="align-content tech-family" id="tech-family">
           <div id="family">
             <label for="family" id="label-family">Qual sua família?</label>
 
@@ -79,7 +79,7 @@
             >
             <div class="checkbox">
               <label for="HoFs"
-                ><input type="checkbox" name="HoFs" id="HoFs" value="HoFs" />
+                ><input type="checkbox" name="HoFs" id="HoFs" class="" value="HoFs" />
                 HoFs</label
               >
 

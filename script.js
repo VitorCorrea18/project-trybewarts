@@ -4,7 +4,7 @@ const btnSend = document.getElementById('submit-btn'); // guarda o botão 'submi
 const textArea = document.querySelector('textarea'); // guarda o input de texto nesta variável.
 const maxLength = textArea.getAttribute('maxlength'); // guarda o valor numerico do atributo maxlength da textarea.
 const counter = document.getElementById('counter'); // Elemento span que guarda o numero atual de carecteres do textarea (length).
-// const main = document.getElementById('main'); REQUISITO 22
+const section1 = document.getElementById('personal-data');
 
 function checkLogin() {
   // Verifica se o email e a senha correspondem ao esperado.
@@ -28,9 +28,42 @@ function checkAgreement() {
   }
 }
 
-// btnSend.addEventListener('click', (event) => {
-//   const sentForm = document.createElement('div').className('sent-form');
-// }); COMPLETAR REQUISITO 22!
+function printName() {
+  const name = document.getElementById('input-name');
+  const lastName = document.getElementById('input-lastname');
+  const fullName = document.createElement('p');
+  fullName.innerText = `Nome: ${name.value} ${lastName.value}`;
+  section1.append(fullName);
+  name.remove();
+  lastName.remove();
+}
+
+function printEmail() {
+  const inputEmail = document.getElementById('input-email');
+  const email = document.createElement('p');
+  email.innerText = `Email: ${inputEmail.value}`;
+  section1.append(email);
+  inputEmail.remove();
+}
+
+function printHouse() {
+  const inputHouse = document.getElementById('house');
+  const house = document.createElement('p');
+  house.innerText = `Casa: ${inputHouse.value}`;
+  section1.append(house);
+  inputHouse.remove();
+  document.getElementById('label-house').remove();
+}
+
+btnSend.addEventListener('click', (event) => {
+  event.preventDefault();
+  const subject = document.querySelectorAll('input[type="checkbox"]');
+  for (let i = 0; i < subject.length; i += 1) {
+    subject[i].classList = 'subject';
+  } // incompleto.
+
+  printName(); printEmail(); printHouse();
+});
 
 window.onload = () => { // Se ativa no momento que a página é carregada.
   btnEntrar.addEventListener('click', () => { // escutador de evento 'click' no botão entrar.
