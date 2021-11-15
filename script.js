@@ -37,14 +37,10 @@ window.onload = () => { // Se ativa no momento que a página é carregada.
   });
 };
 
+counter.innerText = `${maxLength}`; // exibe o valor max de caracteres permitidos.
 textArea.addEventListener('keyup', () => { // Se ativa ao digitar na text area.
-  if (textArea.value.length > 0) { // compara se o numero de caracteres na textarea é maior que 0.
-    counter.innerText = `${textArea.value.length} / ${maxLength}`; // atualiza o counter.
-    counter.style.backgroundColor = 'gray';
-  } else {
-    counter.innerText = ''; // zera o counter.
-    counter.style.backgroundColor = 'white';
-  }
+
+    counter.innerText = `${maxLength - textArea.value.length}`; // atualiza o counter.
 });
 
 btnSend.addEventListener('click', () => {

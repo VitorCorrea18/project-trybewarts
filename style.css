@@ -110,6 +110,7 @@ footer h3 {
 }
 
 #counter {
+  background-color: gray;
   width: fit-content;
   border-radius: 5px;
   padding: 4px;
