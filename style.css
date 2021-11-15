@@ -39,7 +39,6 @@ body {
   align-items: center;
   align-self: center;
   justify-self: center;
-
 }
 
 .align-content {
@@ -56,7 +55,6 @@ body {
 #trybewarts-forms-logo {
   height: 500px;
   margin: 0 0 0 50px;
-
 }
 
 #family {
@@ -109,4 +107,16 @@ footer h3 {
   color: white;
   background-color: darkslategrey;
   text-align: center;
+}
+
+#counter {
+  width: fit-content;
+  border-radius: 5px;
+  padding: 4px;
+  margin: 5px;
+ align-self: flex-end;
+}
+
+#textarea {
+  resize: none;
 }
