@@ -4,7 +4,6 @@ const btnSend = document.getElementById('submit-btn'); // guarda o botão 'submi
 const textArea = document.querySelector('textarea'); // guarda o input de texto nesta variável.
 const maxLength = textArea.getAttribute('maxlength'); // guarda o valor numerico do atributo maxlength da textarea.
 const counter = document.getElementById('counter'); // Elemento span que guarda o numero atual de carecteres do textarea (length).
-const section1 = document.getElementById('personal-data');
 
 function checkLogin() {
   // Verifica se o email e a senha correspondem ao esperado.
@@ -28,41 +27,61 @@ function checkAgreement() {
   }
 }
 
-function printName() {
-  const name = document.getElementById('input-name');
-  const lastName = document.getElementById('input-lastname');
-  const fullName = document.createElement('p');
-  fullName.innerText = `Nome: ${name.value} ${lastName.value}`;
-  section1.append(fullName);
-  name.remove();
-  lastName.remove();
+function prepareScreen() {
+  document.querySelector('#evaluation-form').remove();
+  const section = document.querySelector('.form-section');
+  section.style.background = 'white';
 }
 
-function printEmail() {
-  const inputEmail = document.getElementById('input-email');
-  const email = document.createElement('p');
-  email.innerText = `Email: ${inputEmail.value}`;
-  section1.append(email);
-  inputEmail.remove();
+function filtertechs({ HoFs, React, SQL, Jest, Promises, Python }) {
+  let techs = [];
+  if (HoFs) techs.push(HoFs);
+  if (React) techs.push(React);
+  if (SQL) techs.push(SQL);
+  if (Jest) techs.push(Jest);
+  if (Promises) techs.push(Promises);
+  if (Python) techs.push(Python);
+  return techs;
 }
 
-function printHouse() {
-  const inputHouse = document.getElementById('house');
-  const house = document.createElement('p');
-  house.innerText = `Casa: ${inputHouse.value}`;
-  section1.append(house);
-  inputHouse.remove();
-  document.getElementById('label-house').remove();
+function appendAll(name, house, family, rate, textArea, techSpan) {
+  document.querySelector('.form-section').appendChild(name);
+  document.querySelector('.form-section').appendChild(house);
+  document.querySelector('.form-section').appendChild(family);
+  document.querySelector('.form-section').appendChild(techSpan);
+  document.querySelector('.form-section').appendChild(rate);
+  document.querySelector('.form-section').appendChild(textArea);
 }
 
-btnSend.addEventListener('click', (event) => {
-  event.preventDefault();
-  const subject = document.querySelectorAll('input[type="checkbox"]');
-  for (let i = 0; i < subject.length; i += 1) {
-    subject[i].classList = 'subject';
-  } // incompleto.
+function makeSpanElements(name, lastname, house, family, rate, textarea, techs) {
+  const nameSpan = document.createElement('span');
+  const houseSpan = document.createElement('span');
+  const familySpan = document.createElement('span');
+  const techSpan = document.createElement('span');
+  const rateSpan = document.createElement('span');
+  const textAreaSpan = document.createElement('span');
+  nameSpan.innerHTML = `Nome: ${name} ${lastname}`;
+  houseSpan.innerHTML = `Casa: ${house}`;
+  familySpan.innerHTML = `Familia: ${family}`;
+  rateSpan.innerHTML = `Avaliação: ${rate}`;
+  textAreaSpan.innerHTML = `Comentário: ${textarea}`;
+  techSpan.innerHTML = `Tecnologias: ${techs}`;
+  appendAll(nameSpan, houseSpan, familySpan, rateSpan, textAreaSpan, techSpan);
+}
 
-  printName(); printEmail(); printHouse();
+function printOnScreen(data) {
+  const { name, lastname, house, family, rate, textarea } = data;
+  prepareScreen();
+  const techs = filtertechs(data);
+  makeSpanElements(name, lastname, house, family, rate, textarea, techs);
+
+}
+
+btnSend.addEventListener('click', (e) => {
+  e.preventDefault();
+  const formData = new FormData(document.querySelector('#evaluation-form'));
+  const formProps = Object.fromEntries(formData);
+  printOnScreen(formProps);
 });
 
 window.onload = () => { // Se ativa no momento que a página é carregada.
