@@ -4,6 +4,7 @@ const btnSend = document.getElementById('submit-btn'); // guarda o botão 'submi
 const textArea = document.querySelector('textarea'); // guarda o input de texto nesta variável.
 const maxLength = textArea.getAttribute('maxlength'); // guarda o valor numerico do atributo maxlength da textarea.
 const counter = document.getElementById('counter'); // Elemento span que guarda o numero atual de carecteres do textarea (length).
+const section1 = document.getElementById('personal-data');
 
 function checkLogin() {
   // Verifica se o email e a senha correspondem ao esperado.
@@ -33,14 +34,14 @@ function prepareScreen() {
   section.style.background = 'white';
 }
 
-function filtertechs({ HoFs, React, SQL, Jest, Promises, Python }) {
+function filtertechs({ HoFs , React, SQL, Jest, Promises, Python }) {
   let techs = [];
-  if (HoFs) techs.push(HoFs);
-  if (React) techs.push(React);
-  if (SQL) techs.push(SQL);
-  if (Jest) techs.push(Jest);
-  if (Promises) techs.push(Promises);
-  if (Python) techs.push(Python);
+  if(HoFs) techs.push(HoFs);
+  if(React) techs.push(React);
+  if(SQL) techs.push(SQL);
+  if(Jest) techs.push(Jest);
+  if(Promises) techs.push(Promises);
+  if(Python) techs.push(Python);
   return techs;
 }
 
@@ -69,19 +70,29 @@ function makeSpanElements(name, lastname, house, family, rate, textarea, techs) 
   appendAll(nameSpan, houseSpan, familySpan, rateSpan, textAreaSpan, techSpan);
 }
 
+function makeTechList(techs) {
+  const techList = document.createElement('ul');
+  document.querySelector('.form-section').appendChild(techList);
+  techs.forEach((tech) => {
+    const newElem = document.createElement('li');
+    newElem.innerText = tech;
+    techList.appendChild(newElem);
+  })
+}
+
 function printOnScreen(data) {
-  const { name, lastname, house, family, rate, textarea } = data;
+  const { name, lastname, house, family, rate, textarea} = data;
   prepareScreen();
   const techs = filtertechs(data);
   makeSpanElements(name, lastname, house, family, rate, textarea, techs);
-
+  
 }
 
 btnSend.addEventListener('click', (e) => {
-  e.preventDefault();
-  const formData = new FormData(document.querySelector('#evaluation-form'));
-  const formProps = Object.fromEntries(formData);
-  printOnScreen(formProps);
+    e.preventDefault();
+    const formData = new FormData(document.querySelector('#evaluation-form'));
+    const formProps = Object.fromEntries(formData);
+    printOnScreen(formProps);
 });
 
 window.onload = () => { // Se ativa no momento que a página é carregada.
